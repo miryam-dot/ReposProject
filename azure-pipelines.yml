@@ -6,12 +6,17 @@
 trigger:
 - master
 
-pool:SelfHostedAgent
-  vmImage: ubuntu-latest
+pool:
+  name: 'SelfHostedAgent'  # Replace with your agent pool name
+  demands:                   # Optional - Add any agent capabilities required
+    - MiryamVm -equals MiryamVm
+
+steps:
+  - script: echo "Running a job on my custom agent"
+    displayName: "My Custom Job"
+
 
 variables:
   buildConfiguration: 'Release'
 
-steps:
-- script: dotnet build --configuration $(buildConfiguration)
-  displayName: 'dotnet build $(buildConfiguration)'
+
