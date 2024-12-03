@@ -8,8 +8,7 @@ trigger:
 
 pool:
   name: 'SelfHostedAgent'  # Replace with your agent pool name
-  demands:                   # Optional - Add any agent capabilities required
-    - MiryamVm -equals MiryamVm
+  
 
 steps:
   - script: echo "Running a job on my custom agent"
